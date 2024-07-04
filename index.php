@@ -1,55 +1,74 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Página Inicial</title>
+<?php include("header.php"); ?>
 
-    <!-- Latest compiled and minified CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <div class="container text-center mt-3 mb-5">
 
-    <!-- Latest compiled JavaScript -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Alerta criado para informar a quantidade de produtos -->
+        <div class="alert alert-info text-center" style="width:50%; margin:auto;">
+            Há <strong>X</strong> produtos cadastrados em nosso sistema!
+        </div>
+        <br>
 
-    <!-- Fonte que peguei do Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Black+And+White+Picture&family=Nosifer&family=Sedgwick+Ave+Display&display=swap" rel="stylesheet">
-    
-</head>
-<body>
-
-    <div class="container-fluid text-dark text-center mt-3">
-        <img src="img/logo_joaninha.png" width="100">
-        <h1 style="font-family: Black And White Picture">Joaninhas TB</h1>
-    </div>
-
-    <!-- Barra de Navegação -->
-    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-        <div class="container-fluid">
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
-                <span class="navbar-toggler-icon"></span>
+        <!-- Formulário para aplicar filtros aos produtos -->
+        <form name="formFiltro" action="index.php" method="GET" style="width:50%; margin:auto;">
+            <select class="form-select" name="filtroProduto" required>
+                <option value="todos">Visualizar todos os Produtos</option>
+                <option value="disponivel">Visualizar apenas Produtos Disponíveis</option>
+                <option value="vendido">Visualizar apenas Produtos Vendidos</option>
+            </select><br>
+            <button type="submit" class="btn btn-primary" style="float:right">
+                Filtrar Produtos
             </button>
-            <div class="collapse navbar-collapse" id="collapsibleNavbar">
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link active" href="index.php">Página Inicial</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link disabled" href="#">Link</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link disabled" href="#">Link</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="formLogin.php">Login</a>
-                    </li>
-                </ul>
+        </form>
+
+        <!-- Início da primeira linha da GRID -->
+        <div class="row mt-5">
+            <!-- Início da primeira coluna da GRID -->
+            <div class="col-sm-3">
+                <!-- Início do Card para exibição do produto-->
+                <div class="card" style="width:100%; height:100%;">
+                    <img class="card-img-top" src="img_avatar1.png" alt="Card image">
+                    <div class="card-body">
+                        <h4 class="card-title">Nome do Produto</h4>
+                        <p class="card-text">Preço do Produto</p>
+                        <a href="#" class="btn btn-primary">Ver Detalhes</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="card" style="width:100%; height:100%;">
+                    <img class="card-img-top" src="img_avatar1.png" alt="Card image">
+                    <div class="card-body">
+                        <h4 class="card-title">Nome do Produto</h4>
+                        <p class="card-text">Preço do Produto</p>
+                        <a href="#" class="btn btn-primary">Ver Detalhes</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="card" style="width:100%; height:100%;">
+                    <img class="card-img-top" src="img_avatar1.png" alt="Card image">
+                    <div class="card-body">
+                        <h4 class="card-title">Nome do Produto</h4>
+                        <p class="card-text">Preço do Produto</p>
+                        <a href="#" class="btn btn-primary">Ver Detalhes</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="card" style="width:100%; height:100%;">
+                    <img class="card-img-top" src="img_avatar1.png" alt="Card image">
+                    <div class="card-body">
+                        <h4 class="card-title">Nome do Produto</h4>
+                        <p class="card-text">Preço do Produto</p>
+                        <a href="#" class="btn btn-primary">Ver Detalhes</a>
+                    </div>
+                </div>
             </div>
         </div>
-    </nav>
 
 
-</body>
-</html>
+    </div>
+
+<?php include("footer.php"); ?>
+
+?>
