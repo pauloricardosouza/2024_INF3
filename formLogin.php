@@ -7,7 +7,7 @@
         <div class="d-flex justify-content-center mb-3">
             <div class="row">
                 <div class="col-12">
-                    <form action="#login.php" class="was-validated">
+                    <form action="#login.php" method="POST" class="was-validated">
                         <div class="form-floating mb-3 mt-3">
                             <input type="email" class="form-control" id="emailUsuario" placeholder="Informe o seu email" name="emailUsuario" required>
                             <label for="emailUsuario" class="form-label">Email:</label>
