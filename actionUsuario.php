@@ -14,7 +14,7 @@
             $erroPreenchimento = true;
         }
         else {
-            $nomeUsuario = $_POST["nomeUsuario"];
+            $nomeUsuario = filtrar_entrada($_POST["nomeUsuario"]);
         }
 
         //Validação do campo cidadeUsuario utilizando a função empty
@@ -23,7 +23,7 @@
             $erroPreenchimento = true;
         }
         else {
-            $cidadeUsuario = $_POST["cidadeUsuario"];
+            $cidadeUsuario = filtrar_entrada($_POST["cidadeUsuario"]);
         }
 
         //Validação do campo telefoneUsuario utilizando a função empty
@@ -32,7 +32,7 @@
             $erroPreenchimento = true;
         }
         else {
-            $telefoneUsuario = $_POST["telefoneUsuario"];
+            $telefoneUsuario = filtrar_entrada($_POST["telefoneUsuario"]);
         }
 
         //Validação do campo emailUsuario utilizando a função empty
@@ -41,7 +41,7 @@
             $erroPreenchimento = true;
         }
         else {
-            $emailUsuario = $_POST["emailUsuario"];
+            $emailUsuario = filtrar_entrada($_POST["emailUsuario"]);
         }
 
         //Validação do campo senhaUsuario utilizando a função empty
@@ -50,7 +50,7 @@
             $erroPreenchimento = true;
         }
         else {
-            $senhaUsuario = $_POST["senhaUsuario"];
+            $senhaUsuario = md5(filtrar_entrada($_POST["senhaUsuario"]));
         }
 
         //Validação do campo confirmarSenhaUsuario utilizando a função empty
@@ -59,10 +59,57 @@
             $erroPreenchimento = true;
         }
         else {
-            $confirmarSenhaUsuario = $_POST["confirmarSenhaUsuario"];
+            $confirmarSenhaUsuario = md5(filtrar_entrada($_POST["confirmarSenhaUsuario"]));
+            if($senhaUsuario != $confirmarSenhaUsuario){
+                echo "<div class='alert alert-warning text-center'>As <strong>SENHAS</strong> não coincidem!</div>";
+                $erroPreenchimento = true;
+            }
+        }
+
+        //Se não houverem erros de preenchimento, exibe os dados cadastrados!
+        if(!$erroPreenchimento){
+            echo "
+                <div class='alert alert-success text-center'><strong>Usuário</strong> cadastrado com sucesso!</div>
+                <div class='container mt-3'>
+                    <div class='table-responsive'>
+                        <table class='table'>
+                            <tr>
+                                <th>NOME</th>
+                                <td>$nomeUsuario</td>
+                            </tr>
+                            <tr>
+                                <th>CIDADE</th>
+                                <td>$cidadeUsuario</td>
+                            </tr>
+                            <tr>
+                                <th>TELEFONE</th>
+                                <td>$telefoneUsuario</td>
+                            </tr>
+                            <tr>
+                                <th>EMAIL</th>
+                                <td>$emailUsuario</td>
+                            </tr>
+                            <tr>
+                                <th>SENHA</th>
+                                <td>$senhaUsuario</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            ";
         }
 
     }
+
+    //Função para filtrar dados do formulário e evitar SQL Injection
+    function filtrar_entrada($dado){
+        $dado = trim($dado); //Remove espaços desnecessários
+        $dado = stripslashes($dado); //Remove as barras invertidas
+        $dado = htmlspecialchars($dado); //Converte caracteres especiais em entidades HTML
+
+        return($dado);
+    }
+
 ?>
 
 <?php include "footer.php"; ?>
