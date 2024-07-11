@@ -35,6 +35,33 @@
             $telefoneUsuario = $_POST["telefoneUsuario"];
         }
 
+        //Validação do campo emailUsuario utilizando a função empty
+        if(empty($_POST["emailUsuario"])){
+            echo "<div class='alert alert-warning text-center'>O campo <strong>EMAIL</strong> é obrigatório!</div>";
+            $erroPreenchimento = true;
+        }
+        else {
+            $emailUsuario = $_POST["emailUsuario"];
+        }
+
+        //Validação do campo senhaUsuario utilizando a função empty
+        if(empty($_POST["senhaUsuario"])){
+            echo "<div class='alert alert-warning text-center'>O campo <strong>SENHA</strong> é obrigatório!</div>";
+            $erroPreenchimento = true;
+        }
+        else {
+            $senhaUsuario = $_POST["senhaUsuario"];
+        }
+
+        //Validação do campo confirmarSenhaUsuario utilizando a função empty
+        if(empty($_POST["confirmarSenhaUsuario"])){
+            echo "<div class='alert alert-warning text-center'>O campo <strong>CONFIRMAR SENHA</strong> é obrigatório!</div>";
+            $erroPreenchimento = true;
+        }
+        else {
+            $confirmarSenhaUsuario = $_POST["confirmarSenhaUsuario"];
+        }
+
     }
 ?>
 
