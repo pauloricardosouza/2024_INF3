@@ -9,10 +9,12 @@
     if($_SERVER["REQUEST_METHOD"] == "POST"){
 
         //Validação do campo nomeUsuario utilizando a função empty
+        //Verifica se o campo do formulário está vazio e caso sim, exibe mensagem de alerta
         if(empty($_POST["nomeUsuario"])){
             echo "<div class='alert alert-warning text-center'>O campo <strong>NOME</strong> é obrigatório!</div>";
             $erroPreenchimento = true;
         }
+        //Se o campo não estiver vazio, ele filtra o dado e armazena na variável PHP
         else {
             $nomeUsuario = filtrar_entrada($_POST["nomeUsuario"]);
         }
@@ -101,38 +103,53 @@
 
         //Se não houverem erros de preenchimento, exibe os dados cadastrados!
         if(!$erroPreenchimento && !$erroUpload){
-            echo "
-                <div class='alert alert-success text-center'><strong>Usuário</strong> cadastrado com sucesso!</div>
-                <div class='container mt-3'>
-                    <div class='container mt-3 text-center'>
-                        <img src='$fotoUsuario' width='150' title='Foto de $nomeUsuario'>
+
+            //Armazena a QUERY na variável $inserirUsuario
+            $inserirUsuario = "INSERT INTO Usuarios (fotoUsuario, nomeUsuario, cidadeUsuario, telefoneUsuario, emailUsuario, senhaUsuario) VALUES ('$fotoUsuario', '$nomeUsuario', '$cidadeUsuario', '$telefoneUsuario', '$emailUsuario', '$senhaUsuario')";
+
+            //Inclui o arquivo de conexao com o banco de dados
+            include "conexaoBD.php";
+
+            //Utiliza a função msyqli_query() para executar a QUERY
+            //Se a função conseguir executar a query, exibe mensagem e monta a tabela com os dados cadastrados
+            if(mysqli_query($conn, $inserirUsuario)){
+                echo "
+                    <div class='alert alert-success text-center'><strong>Usuário</strong> cadastrado com sucesso!</div>
+                    <div class='container mt-3'>
+                        <div class='container mt-3 text-center'>
+                            <img src='$fotoUsuario' width='150' title='Foto de $nomeUsuario'>
+                        </div>
+                        <div class='table-responsive'>
+                            <table class='table'>
+                                <tr>
+                                    <th>NOME</th>
+                                    <td>$nomeUsuario</td>
+                                </tr>
+                                <tr>
+                                    <th>CIDADE</th>
+                                    <td>$cidadeUsuario</td>
+                                </tr>
+                                <tr>
+                                    <th>TELEFONE</th>
+                                    <td>$telefoneUsuario</td>
+                                </tr>
+                                <tr>
+                                    <th>EMAIL</th>
+                                    <td>$emailUsuario</td>
+                                </tr>
+                                <tr>
+                                    <th>SENHA</th>
+                                    <td>$senhaUsuario</td>
+                                </tr>
+                            </table>
+                        </div>
                     </div>
-                    <div class='table-responsive'>
-                        <table class='table'>
-                            <tr>
-                                <th>NOME</th>
-                                <td>$nomeUsuario</td>
-                            </tr>
-                            <tr>
-                                <th>CIDADE</th>
-                                <td>$cidadeUsuario</td>
-                            </tr>
-                            <tr>
-                                <th>TELEFONE</th>
-                                <td>$telefoneUsuario</td>
-                            </tr>
-                            <tr>
-                                <th>EMAIL</th>
-                                <td>$emailUsuario</td>
-                            </tr>
-                            <tr>
-                                <th>SENHA</th>
-                                <td>$senhaUsuario</td>
-                            </tr>
-                        </table>
-                    </div>
-                </div>
-            ";
+                ";
+            }
+            else{
+                echo "<div class='alert alert-danger text-center'>Erro ao tentar cadastrar <strong>Usuário</strong></div>" . mysqli_error($conn);
+            }
+            
         }
 
     }
