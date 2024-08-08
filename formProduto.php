@@ -52,7 +52,7 @@
                         </div>
 
                         <div class="form-check form-switch">
-                            <input class="form-check-input" type="checkbox" id="condicaoProduto" name="condicaoProduto" value="yes" checked>
+                            <input class="form-check-input" type="checkbox" id="condicaoProduto" name="condicaoProduto" value="novo" checked>
                             <label class="form-check-label" for="condicaoProduto">Produto novo</label>
                         </div>
 
