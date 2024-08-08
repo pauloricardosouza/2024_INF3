@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 08-Ago-2024 às 19:34
+-- Tempo de geração: 08-Ago-2024 às 19:46
 -- Versão do servidor: 8.0.26
 -- versão do PHP: 8.0.10
 
@@ -96,7 +96,7 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de tabela `produtos`
 --
 ALTER TABLE `produtos`
-  MODIFY `idProduto` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `idProduto` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de tabela `usuarios`
