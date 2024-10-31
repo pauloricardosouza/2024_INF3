@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Tempo de geração: 08-Ago-2024 às 19:34
--- Versão do servidor: 8.0.26
--- versão do PHP: 8.0.10
+-- Host: localhost:8889
+-- Tempo de geração: 31/10/2024 às 20:52
+-- Versão do servidor: 5.7.39
+-- Versão do PHP: 7.4.33
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,11 +24,11 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `produtos`
+-- Estrutura para tabela `produtos`
 --
 
 CREATE TABLE `produtos` (
-  `idProduto` int NOT NULL,
+  `idProduto` int(11) NOT NULL,
   `fotoProduto` varchar(100) NOT NULL,
   `nomeProduto` varchar(30) NOT NULL,
   `descricaoProduto` varchar(100) NOT NULL,
@@ -38,34 +38,35 @@ CREATE TABLE `produtos` (
   `dataCadastroProduto` date NOT NULL,
   `horaCadastroProduto` time NOT NULL,
   `statusProduto` varchar(15) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Extraindo dados da tabela `produtos`
+-- Despejando dados para a tabela `produtos`
 --
 
 INSERT INTO `produtos` (`idProduto`, `fotoProduto`, `nomeProduto`, `descricaoProduto`, `categoriaProduto`, `valorProduto`, `condicaoProduto`, `dataCadastroProduto`, `horaCadastroProduto`, `statusProduto`) VALUES
 (1, 'img/switchNeon.webp', 'Nintendo Switch Neon', 'Console Nintendo Switch Standard Neon', 'alimentos', '1500.00', 'Novo', '2024-08-06', '22:43:03', 'disponivel'),
-(3, 'img/vans.webp', 'Tênis VANS', 'Calçado VANS preto Old School Bla bla bla bla', 'vestuario', '300.00', 'Novo', '2024-07-24', '02:47:09', 'esgotado');
+(3, 'img/vans.webp', 'Tênis VANS', 'Calçado VANS preto Old School Bla bla bla bla', 'vestuario', '300.00', 'Novo', '2024-07-24', '02:47:09', 'esgotado'),
+(5, 'img/feijao.webp', 'Feijão Camil', 'Pacote de feijão carioca da marca Camil', 'alimentos', '10.00', 'Novo', '2024-10-31', '17:25:27', 'disponivel');
 
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `usuarios`
+-- Estrutura para tabela `usuarios`
 --
 
 CREATE TABLE `usuarios` (
-  `idUsuario` int NOT NULL,
+  `idUsuario` int(11) NOT NULL,
   `fotoUsuario` varchar(100) NOT NULL,
   `nomeUsuario` varchar(50) NOT NULL,
   `cidadeUsuario` varchar(50) NOT NULL,
   `telefoneUsuario` varchar(20) NOT NULL,
   `emailUsuario` varchar(50) NOT NULL,
   `senhaUsuario` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Extraindo dados da tabela `usuarios`
+-- Despejando dados para a tabela `usuarios`
 --
 
 INSERT INTO `usuarios` (`idUsuario`, `fotoUsuario`, `nomeUsuario`, `cidadeUsuario`, `telefoneUsuario`, `emailUsuario`, `senhaUsuario`) VALUES
@@ -77,32 +78,32 @@ INSERT INTO `usuarios` (`idUsuario`, `fotoUsuario`, `nomeUsuario`, `cidadeUsuari
 --
 
 --
--- Índices para tabela `produtos`
+-- Índices de tabela `produtos`
 --
 ALTER TABLE `produtos`
   ADD PRIMARY KEY (`idProduto`);
 
 --
--- Índices para tabela `usuarios`
+-- Índices de tabela `usuarios`
 --
 ALTER TABLE `usuarios`
   ADD PRIMARY KEY (`idUsuario`);
 
 --
--- AUTO_INCREMENT de tabelas despejadas
+-- AUTO_INCREMENT para tabelas despejadas
 --
 
 --
 -- AUTO_INCREMENT de tabela `produtos`
 --
 ALTER TABLE `produtos`
-  MODIFY `idProduto` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `idProduto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de tabela `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `idUsuario` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `idUsuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
