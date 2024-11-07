@@ -60,7 +60,7 @@
                         <div class='col-3' style='margin-bottom:30px;'>
                             <div class='card' style='width:100%; height:100%;'>
                                 <div class='card-body' style='height:100%'>
-                                    <a href='#' style='text-decoration:none;' title='Visualizar $nomeProduto' >
+                                    <a href='visualizarProduto.php?idProduto=$idProduto' style='text-decoration:none;' title='Visualizar $nomeProduto' >
                                         <img class='card-img-top' src='$fotoProduto' alt='Foto de $nomeProduto' "; if($statusProduto == 'esgotado'){echo "style='filter:grayscale(100%)';";} echo ">
                                     </a>
                                 </div>
@@ -68,7 +68,7 @@
                                     <h5 class='card-title'>$nomeProduto</h5>
                                     <p class='card-text'>Valor: <b>R$ $valorProduto</b></p>
                                     <div class='d-grid' style='border-size:border-box'>
-                                        <a href='#' class='btn btn-primary' title='Visualizar $nomeProduto' >Visualizar Produto</a>
+                                        <a href='visualizarProduto.php?idProduto=$idProduto' class='btn btn-primary' title='Visualizar $nomeProduto' >Visualizar Produto</a>
                                     </div>
                                 </div>
                             </div>
