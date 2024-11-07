@@ -57,7 +57,7 @@
 
                     echo "
                         <!-- Início da primeira coluna da GRID -->
-                        <div class='col-3' style='margin-bottom:30px;'>
+                        <div class='col-sm-3' style='margin-bottom:30px;'>
                             <div class='card' style='width:100%; height:100%;'>
                                 <div class='card-body' style='height:100%'>
                                     <a href='visualizarProduto.php?idProduto=$idProduto' style='text-decoration:none;' title='Visualizar $nomeProduto' >
