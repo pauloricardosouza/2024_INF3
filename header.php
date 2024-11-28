@@ -42,17 +42,59 @@
             </button>
             <div class="collapse navbar-collapse" id="collapsibleNavbar">
                 <ul class="navbar-nav">
+                    <?php
+                        //Habilitar alertas de erros simples
+                        error_reporting(0);
+                        session_start();
+                        $idUsuario    = $_SESSION['idUsuario'];
+                        $tipoUsuario  = $_SESSION['tipoUsuario'];
+                        $fotoUsuario  = $_SESSION['fotoUsuario'];
+                        $emailUsuario = $_SESSION['emailUsuario'];
+                        $nomeUsuario  = $_SESSION['nomeUsuario'];
+
+                        //Capturar o primeiro nome do Usuário
+                        $nomeCompleto = explode(' ', $nomeUsuario);
+                        $primeiroNome = $nomeCompleto[0];
+
+                    ?>
                     <li class="nav-item">
                         <a class="nav-link active" href="index.php" title="Ir para a Página Inicial">Home</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="formProduto.php" title="Cadastrar Produto">Cadastrar Produto</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="formLogin.php" title="Acessar o Sistema">Login</a>
-                    </li>
+                    <?php
+                        if($tipoUsuario == 'admin'){
+                            echo "
+                                <li class='nav-item'>
+                                    <a class='nav-link' href='formProduto.php' title='Cadastrar Produto'>
+                                        Cadastrar Produto
+                                    </a>
+                                </li>
+                            ";
+                        }
+                    ?>
                 </ul>
             </div>
+            <?php
+
+                echo "<ul class='navbar-nav'>";
+                if(isset($_SESSION['logado']) && $_SESSION['logado'] === true){
+                    echo "
+                        <a class='nav-link' href='#'>
+                            Logado como: $primeiroNome
+                        </a>
+                        <a class='nav-link' href='logout.php' title='Sair do Sistema'>
+                            Logout
+                        </a>
+                    ";
+                }
+                else{
+                    echo "
+                        <a class='nav-link' href='formLogin.php' title='Acessar o Sistema'>
+                            Login
+                        </a>
+                    ";
+                }
+                echo "</ul>";
+            ?>
         </div>
     </nav>
 

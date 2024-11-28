@@ -30,7 +30,7 @@
                 $statusProduto       = $registro["statusProduto"];
 
                 echo "
-                    <div class='d-flex justify-content-center mb-3'>
+                    <div class='d-flex justify-content-center mb-3 sm-3'>
                         <div class='card' style='width:30%; border-style:none'>
                             <div id='Produto' class='carousel slide' data-bs-ride='carousel'>
 
