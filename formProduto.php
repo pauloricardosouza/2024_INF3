@@ -36,6 +36,7 @@
 
                         <div class="form-floating mb-3 mt-3">
                             <select class="form-select" id="categoriaProduto" name="categoriaProduto" required>
+                                <option value="" data-default disabled selected>Selecione uma categoria</option>
                                 <option value="alimentos">Alimentos</option>
                                 <option value="eletronicos">Eletrônicos</option>
                                 <option value="vestuario">Vestuário</option>
